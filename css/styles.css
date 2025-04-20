@@ -117,6 +117,7 @@ body{
 
 /* ========== Hero ================================================================================================*/ 
 
+/* Основные стили остаются без изменений */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -138,14 +139,49 @@ body{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* Добавляем центрирование */
 }
 
 .hero__container {
   position: relative;
   z-index: 2;
   color: white;
+  padding: 0 15px; /* Добавляем отступы по краям */
 }
 
+/* Медиазапросы для адаптации */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 80vh;
+  }
+  
+  ._ibg img {
+    object-position: 60% center; /* Смещаем фокус для мобильных */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    align-items: flex-start; /* Контент прижимаем к верху */
+    padding-top: 60px; /* Отступ сверху */
+  }
+  
+  .hero__container {
+    padding-top: 40px; /* Дополнительный отступ */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 60vh;
+  }
+  
+  ._ibg img {
+    object-position: 75% center; /* Ещё сильнее смещаем фокус */
+  }
+}
+  
 
 /*----------------why-us-------------------------------------------------------------------------------------------*/
 
@@ -728,5 +764,62 @@ body{
     transform: translateY(0);
   }
 }
+
+/*=====================================================================================================================*/
+
+/* ===== Анимации ===== */
+/* Все секции будут появляться плавно */
+.hero__container,
+.why-us,
+.benefits,
+.steps,
+.faq,
+.online-consult,
+.contacts-form {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Класс, который добавляется при прокрутке */
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Задержки для элементов why-us */
+.item-why-us {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease-out;
+}
+.item-why-us:nth-child(1) { transition-delay: 0.1s; }
+.item-why-us:nth-child(2) { transition-delay: 0.3s; }
+.item-why-us:nth-child(3) { transition-delay: 0.5s; }
+.item-why-us:nth-child(4) { transition-delay: 0.7s; }
+
+/* FAQ анимация */
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq__question.active {
+  color: #2c7be5;
+}
+
+.faq__question::after {
+  content: '+';
+  float: right;
+  transition: transform 0.3s;
+}
+
+.faq__question.active::after {
+  content: '-';
+}
+
+
+
 
 
