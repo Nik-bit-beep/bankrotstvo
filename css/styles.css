@@ -24,11 +24,11 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: inherit;
-    font-size: inherit;
+    font-weight: 700;
+    line-height: 1.2;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
-    color: #2C3E50;
+    
 }    
 
 html,
@@ -50,6 +50,30 @@ body{
    box-sizing: content-box;
 }
 /*=======================================================================================================================*/
+
+/* ===== Базовые отступы ===== */
+.section {
+  padding: 60px 0;
+}
+
+/* Десктопы (≥992px) */
+@media (min-width: 992px) {
+.section {
+    padding: 100px 0;
+  }
+  
+  /* Специальные отступы для героя */
+  .hero {
+    padding: 120px 0;
+  }
+}
+
+/* Мобильные (≤768px) */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+}
 
 /*====================================== Header ======================================================================== */
 
@@ -218,14 +242,10 @@ body{
  
  .why-us__item {
    flex: 1 1 250px;
-   border: 1px solid #f9f9f9 ;
+   background-color: #4B637A; /* белый фон */
+   border: 1px solid #e0e0e0;
    padding: 20px;
-   transition: transform 0.2s ease;
-   border-radius: 3px;
- }
- 
- .why-us__item:hover {
-   transform: translateY(-5px); /* лёгкий подъём при наведении */
+   border-radius: 5px;
  }
  
  .item-why-us__title {
@@ -293,7 +313,7 @@ body{
    line-height: 1.5;
  }
 
- /*=========== Steps =======================================================================================================================*/
+ /*=========== Шаги =======================================================================================================================*/
 
  .steps {
    background-color: #4B637A;
@@ -324,34 +344,28 @@ body{
  
  .steps__item {
    background-color: #5C7890;
-   border: 1px solid #6e8fa3;
-   border-radius: 16px;
+   border: 1px solid #fff;
+   border-radius: 5px;
    padding: 30px 20px;
    text-align: center;
    width: 220px;
    min-height: 220px;
    display: flex;
    flex-direction: column;
-   justify-content: flex-start;
-   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   justify-content: center;
+   align-items: center;
+   transition: all 0.3s ease;
  }
  
  .steps__item:hover {
-   transform: translateY(-8px);
-   box-shadow: 0 12px 30px rgba(243, 156, 18, 0.25); /* мягкое оранжевое свечение */
-   border-color: #F39C12; /* оранжевый акцент */
- }
- 
- .steps__icon {
-   font-size: 40px;
-   margin-bottom: 20px;
-   color: #F39C12;
+   background-color: #E67E00;
  }
  
  .steps__text {
    font-size: 16px;
    color: #ffffff;
    font-weight: 500;
+   
  }
 
  /*============== Faq =========================================================================================================================*/
@@ -683,6 +697,8 @@ body{
       font-size: 0.9rem;
    }
 }
+
+/*=====================================================================================================================*/
 
 .modal {
   display: none;

@@ -76,3 +76,4 @@ document.querySelectorAll('.faq__question').forEach(question => {
     answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
   });
 });
+
